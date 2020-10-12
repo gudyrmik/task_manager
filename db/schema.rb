@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_10_212427) do
+ActiveRecord::Schema.define(version: 2020_10_12_225012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,23 +41,22 @@ ActiveRecord::Schema.define(version: 2020_10_10_212427) do
     t.integer "position", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "tags", force: :cascade do |t|
     t.string "title", null: false
-    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_tags_on_user_id"
   end
 
   create_table "tags_tasks", id: false, force: :cascade do |t|
     t.bigint "task_id", null: false
     t.bigint "tag_id", null: false
-    t.bigint "tasks_id", null: false
-    t.bigint "tags_id", null: false
-    t.index ["tags_id"], name: "index_tags_tasks_on_tags_id"
-    t.index ["tasks_id"], name: "index_tags_tasks_on_tasks_id"
+    t.index ["task_id", "tag_id"], name: "index_tags_tasks_on_task_id_and_tag_id", unique: true
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -66,6 +65,10 @@ ActiveRecord::Schema.define(version: 2020_10_10_212427) do
     t.boolean "is_done", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "project_id"
+    t.bigint "user_id"
+    t.index ["project_id"], name: "index_tasks_on_project_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -83,7 +86,8 @@ ActiveRecord::Schema.define(version: 2020_10_10_212427) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "projects", "users"
   add_foreign_key "tags", "users"
-  add_foreign_key "tags_tasks", "tags", column: "tags_id"
-  add_foreign_key "tags_tasks", "tasks", column: "tasks_id"
+  add_foreign_key "tasks", "projects"
+  add_foreign_key "tasks", "users"
 end
