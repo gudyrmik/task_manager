@@ -50,8 +50,6 @@ ActiveRecord::Schema.define(version: 2020_10_12_235402) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
-    t.bigint "task_tag_id"
-    t.index ["task_tag_id"], name: "index_tags_on_task_tag_id"
     t.index ["user_id"], name: "index_tags_on_user_id"
   end
 
@@ -72,9 +70,7 @@ ActiveRecord::Schema.define(version: 2020_10_12_235402) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "project_id"
     t.bigint "user_id"
-    t.bigint "task_tag_id"
     t.index ["project_id"], name: "index_tasks_on_project_id"
-    t.index ["task_tag_id"], name: "index_tasks_on_task_tag_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
@@ -94,11 +90,7 @@ ActiveRecord::Schema.define(version: 2020_10_12_235402) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "projects", "users"
-  add_foreign_key "tags", "task_tags"
   add_foreign_key "tags", "users"
-  add_foreign_key "task_tags", "tags"
-  add_foreign_key "task_tags", "tasks"
   add_foreign_key "tasks", "projects"
-  add_foreign_key "tasks", "task_tags"
   add_foreign_key "tasks", "users"
 end
