@@ -17,10 +17,10 @@ User.first.projects.create([
 ])
 
 tasks = Project.first.tasks.create([
-  { title: 'Datamodel for Juicymo project', description: 'Migrations abd associations', is_done: true, user: User.first },
+  { title: 'Datamodel for Juicymo project', description: 'Migrations and associations', is_done: true, user: User.first },
   { title: 'Finish Juicymo project', description: 'Should be done untill Sunday', is_done: false, user: User.first },
   { title: 'Contracts', description: "Logistics for Freddy", is_done: false, user: User.first },
-  { title: 'Freddy', description: 'Solve business with Freddy', is_done: true, user: User.first }
+  { title: 'Freddy!!!', description: 'Solve business with Freddy', is_done: true, user: User.first }
 ])
 
 tags = Task.first.tags.create([

@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'slim-rails'
 gem 'pagy'
+gem 'pg_search'
 
 
 # Reduces boot times through caching; required in config/boot.rb

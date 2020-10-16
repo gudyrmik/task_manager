@@ -1,0 +1,10 @@
+= form_with model: @task do |f|
+  p= f.label :title, 'Title:'
+  = f.text_field :title
+  p= f.label :description, 'Description:'
+  = f.text_area :description, rows: 3, cols: 50
+  p= f.label :title, 'Project:'
+  = f.collection_select :project_id, current_user.projects, :id, :title, prompt: true
+  p= f.label :completed
+  = f.check_box :is_done
+  p= f.submit 'Submit data'

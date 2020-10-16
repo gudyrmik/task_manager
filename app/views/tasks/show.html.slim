@@ -1,0 +1,24 @@
+h2 Task details
+
+h4 Title:
+= "#{@task.title}"
+
+h4 Task description:
+= "#{@task.description}"
+
+h4 Completed:
+= "#{@task.is_done}"
+
+- unless @task.project.nil?
+  h4 Assigned to project:
+  = "#{@task.project.title}"
+
+- unless @task.tags.nil?
+  h4 Tags:
+  - @task.tags.each do |tag|
+    = link_to "#{tag.title}"
+    '
+
+p= link_to 'Edit', edit_task_path(@task)
+p= link_to 'To all tasks', tasks_path
+p= link_to 'Delete task', task_path(@task), method: :delete, data: { confirm: 'Are you sure?' }

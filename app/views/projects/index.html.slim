@@ -1,4 +1,25 @@
 h2 My projects
 
-- @projects.each do |project|
-  p= link_to "#{project.title}"
+= link_to 'My tags', tags_path
+'
+= link_to 'My tasks', tasks_path
+
+p
+
+table
+  thead
+    tr
+      th Project title
+      th Tasks
+      th Actions
+
+  tbody
+    - @projects.each do |project|
+      tr
+        td= "#{project.title}"
+        td
+          - project.tasks.each do |task|
+            = link_to "#{task.title}", task_path(task)
+            '
+        td
+          = link_to 'Delete', project_path(project), method: :delete, data: { confirm: 'Are you sure?' }
