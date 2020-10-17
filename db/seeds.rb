@@ -9,11 +9,11 @@ User.create([
 ])
 
 User.first.projects.create([
-  { title: 'Test project for Juicymo' },
-  { title: 'Blogpost for recent CVE' },
-  { title: 'Defensive wall against Covid zombies' },
-  { title: 'New BIO cocaine plantation' },
-  { title: 'Better e-shop for cocaine' }
+  { title: 'Test project for Juicymo', position: 0},
+  { title: 'Blogpost for recent CVE', position: 1 },
+  { title: 'Defensive wall against Covid zombies', position: 2 },
+  { title: 'New BIO cocaine plantation', position: 3 },
+  { title: 'Better e-shop for cocaine', position: 4 }
 ])
 
 tasks = Project.first.tasks.create([

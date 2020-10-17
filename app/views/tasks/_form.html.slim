@@ -7,4 +7,6 @@
   = f.collection_select :project_id, current_user.projects, :id, :title, prompt: true
   p= f.label :completed
   = f.check_box :is_done
+  p= f.label :file, 'Attachment:'
+  = f.file_field :file
   p= f.submit 'Submit data'

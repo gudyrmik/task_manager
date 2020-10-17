@@ -10,4 +10,9 @@ class Task < ApplicationRecord
 
   has_one_attached :file
 
+  scope :completed, -> { where(is_done: true) }
+  scope :in_progress, -> { where(is_done: false) }
+
+  validates :title, :is_done, presence: true
+
 end

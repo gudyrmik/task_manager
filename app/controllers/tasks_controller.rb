@@ -1,9 +1,10 @@
 class TasksController < ApplicationController
 
   before_action :find_task, only: [:show, :edit, :update, :destroy]
+  before_action :init_scope_param, only: :index
 
   def index
-    @pagy, @tasks = pagy(current_user.tasks)
+    @pagy, @tasks = pagy(current_user.tasks.send("#{filtered_scope_param}"))
   end
 
   def show; end
@@ -42,6 +43,16 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(:title, :description, :is_done, :project_id)
+  end
+
+  def init_scope_param
+    params[:scope] ||= 'all'
+  end
+
+  def filtered_scope_param
+    value = params.permit(:scope)[:scope]
+    value = 'all' unless value == 'completed' || value == 'in_progress'
+    value
   end
 
 end

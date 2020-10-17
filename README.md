@@ -43,7 +43,7 @@ Aplikace by měla umožnit uživateli následující (User Stories):
 [+] hlavni stranka, show -> delete
 
 15. Jako uživatel mohu v seznamu svých úkolů přepínat scope mezi Všechny, Hotové a Nehotové
-[-]
+[+] hlavni stranka, index
 
 16. Jako uživatel vidím seznam svých úkolů, projektů a tagů ​stránkovaně
 [+] gem pagy
