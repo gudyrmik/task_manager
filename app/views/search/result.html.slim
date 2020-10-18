@@ -3,4 +3,4 @@ h3= "#{t('.results')} '#{params[:query]}'"
 - @search_results.each do |result|
   p= highlight("#{result.content}", params[:query])
 
-p= link_to 'To all tasks', tasks_path
+p= link_to t('links.tasks_link'), tasks_path
