@@ -1,21 +1,21 @@
-h2 My tasks
+h2= t('.page_title')
 
-= link_to 'All', tasks_path(scope: :all)
+= link_to t('.scope_all'), tasks_path(scope: :all)
 '
-= link_to 'Completed', tasks_path(scope: :completed)
+= link_to t('.scope_completed'), tasks_path(scope: :completed)
 '
-= link_to 'In progres', tasks_path(scope: :in_progress)
+= link_to t('.scope_in_progress'), tasks_path(scope: :in_progress)
 
 p
 
 table
   thead
     tr
-      th Task title
-      th Task description
-      th Completed
-      th Assigned project
-      th Tags
+      th= t('.task_title')
+      th= t('.task_description')
+      th= t('.completed')
+      th= t('.assigned_project')
+      th= t('.tags')
 
   tbody
     - @tasks.each do |task|
@@ -29,8 +29,8 @@ table
             = "#{tag.title}"
             '
 
-p= link_to 'New task', new_task_path
+p= link_to t('links.new_task_link'), new_task_path
 
-= link_to 'My projects', projects_path, class: 'navbar-brand'
+= link_to t('links.projects_link'), projects_path, class: 'navbar-brand'
 '
-= link_to 'My tags', tags_path, class: 'navbar-brand'
+= link_to t('links.tags_link'), tags_path, class: 'navbar-brand'

@@ -1,0 +1,63 @@
+cs:
+  nav:
+    welcome: 'Vitame'
+    acc_settings: 'Nastaveni uctu'
+    logout: 'Odhlasit se'
+    login: 'Prihlasit se'
+    search: 'Najit'
+
+  tag:
+    index:
+      page_title: 'Moje tagy'
+      tag_title: 'Nazev tagu'
+
+  tasks:
+    index:
+      page_title: 'Moje ukoly'
+      task_title: 'Nazev ukolu'
+      task_description: 'Popis ukolu'
+      completed: 'Uzavreno'
+      assigned_project: 'Prirazeny projekt'
+      tags: 'Tagy'
+      scope_all: 'Vsechny'
+      scope_completed: 'Uzavrene'
+      scope_in_progress: 'Otevrene'
+    show:
+      page_title: 'Detail ukolu'
+      task_title: 'Nazev ukolu'
+      task_description: 'Popis ukolu'
+      completed: 'Uzavreno'
+      assigned_project: 'Prirazeny projekt'
+      tags: 'Tagy'
+    new:
+      page_title: 'Vytvorit ukol'
+    edit:
+      page_title: 'Editace ukolu'
+
+  search:
+    result:
+      results: 'Nalezene vysledky z'
+
+  projects:
+    index:
+      page_title: 'Moje projekty'
+      project_title: 'Nazev projektu'
+      project_tasks: 'Prirazene ulohy'
+      project_actions: 'Sprava'
+
+  links:
+    tags_link: 'Moje tagy'
+    projects_link: 'Moje projekty'
+    tasks_link: 'Moje ukoly'
+    delete_link: 'Smazat'
+    delete_confirmation: 'Jste si jisty?'
+    new_task_link: 'Novy ukol'
+    edit_link: 'Editovat'
+
+  task_form:
+    title: 'Ukol'
+    description: 'Popis'
+    project: 'Projekt'
+    completed: 'Uzavreno'
+    attachment: 'Soubor'
+    submit: 'Odeslat'

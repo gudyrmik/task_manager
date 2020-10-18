@@ -1,6 +1,6 @@
-h3= "Search results from '#{params[:query]}' query"
+h3= "#{t('.results')} '#{params[:query]}'"
 
 - @search_results.each do |result|
-  = highlight("#{result.content}", params[:query])
+  p= highlight("#{result.content}", params[:query])
 
 p= link_to 'To all tasks', tasks_path

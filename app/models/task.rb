@@ -13,6 +13,6 @@ class Task < ApplicationRecord
   scope :completed, -> { where(is_done: true) }
   scope :in_progress, -> { where(is_done: false) }
 
-  validates :title, :is_done, presence: true
+  validates :title, presence: true
 
 end

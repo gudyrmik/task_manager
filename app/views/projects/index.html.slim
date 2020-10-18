@@ -1,11 +1,11 @@
-h2 My projects
+h2= t('.page_title')
 
 table
   thead
     tr
-      th Project title
-      th Tasks
-      th Actions
+      th= t('.project_title')
+      th= t('.project_tasks')
+      th= t('.project_actions')
 
   tbody
     - @projects.each do |project|
@@ -16,8 +16,8 @@ table
             = link_to "#{task.title}", task_path(task)
             '
         td
-          = link_to 'Delete', project_path(project), method: :delete, data: { confirm: 'Are you sure?' }
+          = link_to t('links.delete_link'), project_path(project), method: :delete, data: { confirm: t('links.delete_confirmation') }
 
-= link_to 'My tags', tags_path, class: 'navbar-brand'
+= link_to t('links.tags_link'), tags_path, class: 'navbar-brand'
 '
-= link_to 'My tasks', tasks_path, class: 'navbar-brand'
+= link_to t('links.tasks_link'), tasks_path, class: 'navbar-brand'

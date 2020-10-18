@@ -1,15 +1,15 @@
-h2 My tags
+h2= t('tag.index.page_title')
 
 table
   thead
     tr
-      th Tag title
+      th= t('tag.index.tag_title')
 
   tbody
     - @tags.each do |tag|
       tr
         td= "#{tag.title}"
 
-= link_to 'My projects', projects_path, class: 'navbar-brand'
+= link_to t('links.projects_link'), projects_path, class: 'navbar-brand'
 '
-= link_to 'My tasks', tasks_path, class: 'navbar-brand'
+= link_to t('links.tasks_link'), tasks_path, class: 'navbar-brand'

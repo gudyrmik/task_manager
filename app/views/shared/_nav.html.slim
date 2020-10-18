@@ -1,9 +1,8 @@
 nav class=["navbar", "navbar-light", "bg-light"]
   span class="navbar-text"
     - if user_signed_in?
-      = "Welcome, #{current_user.firstname} #{current_user.lastname}"
+      = "#{t('nav.welcome')}, #{current_user.firstname} #{current_user.lastname}"
       '
-      = link_to "Account Settings", edit_user_registration_path
-      br= link_to 'Log out', destroy_user_session_path, method: :delete
-    - else
-      = link_to 'Login', new_user_session_path
+      = link_to t('nav.acc_settings'), edit_user_registration_path
+      br= link_to t('nav.logout'), destroy_user_session_path, method: :delete
+  = render 'shared/search'

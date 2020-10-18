@@ -25,11 +25,13 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem 'devise'
+gem 'devise-i18n'
 gem 'slim-rails'
 gem 'pagy'
 gem 'pg_search'
 gem 'bootstrap'
 gem 'jquery-rails'
+gem 'simple_form'
 
 gem 'rails-i18n'
 
@@ -42,6 +44,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'launchy'
 end
 
 group :development do

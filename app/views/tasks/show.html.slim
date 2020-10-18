@@ -1,24 +1,24 @@
-h2 Task details
+h2= t('.page_title')
 
-h4 Title:
+h4= t('.task_title')
 = "#{@task.title}"
 
-h4 Task description:
+h4= t('.task_description')
 = "#{@task.description}"
 
-h4 Completed:
+h4= t('.completed')
 = "#{@task.is_done}"
 
 - unless @task.project.nil?
-  h4 Assigned to project:
+  h4= t('.assigned_project')
   = "#{@task.project.title}"
 
 - unless @task.tags.nil?
-  h4 Tags:
+  h4= t('.tags')
   - @task.tags.each do |tag|
     = link_to "#{tag.title}"
     '
 
-p= link_to 'Edit', edit_task_path(@task)
-p= link_to 'To all tasks', tasks_path
-p= link_to 'Delete task', task_path(@task), method: :delete, data: { confirm: 'Are you sure?' }
+p= link_to t('links.edit_link'), edit_task_path(@task)
+p= link_to t('links.tasks_link'), tasks_path
+p= link_to t('links.delete_link'), task_path(@task), method: :delete, data: { confirm: t('links.delete_confirmation') }
